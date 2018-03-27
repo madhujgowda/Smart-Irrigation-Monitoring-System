@@ -9,12 +9,12 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(14,GPIO.IN)
 
 config = {
-    "apiKey": "AIzaSyBmT_f31Esi8BBvk1PzEOi9WuImS4VVeF4",
+    "apiKey": "--your app api key comes here--",
     "authDomain": "smart-irrigation-system-fa967.firebaseapp.com",
     "databaseURL": "https://smart-irrigation-system-fa967.firebaseio.com",
     "projectId": "smart-irrigation-system-fa967",
     "storageBucket": "smart-irrigation-system-fa967.appspot.com",
-    "messagingSenderId": "938964008934"
+    "messagingSenderId": "--your app messaging sender id comes here--"
 }
 firebase = pyrebase.initialize_app(config)
 
