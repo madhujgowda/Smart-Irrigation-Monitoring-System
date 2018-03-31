@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Irrigation Monitoring System</title>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan|Roboto+Slab|Itim" rel="stylesheet">
+    <style type="text/css">
+        section
+        {
+            padding: 5%;
+        }
+        section article
+        {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            padding: 5%;
+        }
+        section h1
+        {
+            font-size: 45px;
+            text-align: center;
+            font-family: 'Itim', cursive;
+        }
+        section article p
+        {
+            font-family: 'Roboto Slab', serif;
+        }
+        mainText
+        {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Smart Irrigation Monitoring System</h1>
+        <button id="logoutButton">Log out</button>
+        <article>
+            <div>
+                <p id="temperature"></p>
+            </div>
+            <div>
+                <p id="humidity"></p>
+            </div>
+            <div>
+                <p id="soil_moisture"></p>
+            </div>
+        </article>
+        <br>
+        <article>
+            <div>
+                <p id="water_pump"></p>
+            </div>
+        </article>
+        <br>
+        <article>
+            <div>
+                <p id="sensors"></p>
+            </div>
+        </article>
+    </section>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        // Please edit the below lines according to your firebase initialization 
+        var config = {
+            apiKey: "**your api key comes here**",
+            authDomain: "**your auth domain comes here**",
+            databaseURL: "**your database url comes here**",
+            projectId: "**your project id comes here**",
+            storageBucket: "**your storage bucket comes here**",
+            messagingSenderId: "**your messaging sender id comes here**"
+        };
+        firebase.initializeApp(config);
+
+
+        const logoutButton = document.getElementById('logoutButton');
+        logoutButton.addEventListener('click', e => {
+            firebase.auth().signOut();
+            window.location.href = "login.html";
+        });
+
+
+        var valueRef = firebase.database().ref().child('values');
+        var soil_moistureRef = firebase.database().ref().child('soil_moisture');
+        var water_pumpRef = firebase.database().ref().child('relay_switch');
+        var sensorsRef = firebase.database().ref().child('sensors');
+
+        var temperature = document.getElementById('temperature');
+        valueRef.on('value', snap => temperature.innerHTML = "<mainText>Temperature: </mainText>" + snap.val().temperature);
+
+        var humidity = document.getElementById('humidity');
+        valueRef.on('value', snap => humidity.innerHTML = "<mainText>Humidity: </mainText>" + snap.val().humidity);
+
+        var soil_moisture = document.getElementById('soil_moisture');
+        soil_moistureRef.on('value', snap => soil_moisture.innerHTML = "<mainText>Soil Moisture: </mainText>" + snap.val());
+
+        var water_pump = document.getElementById('water_pump');
+        water_pumpRef.on('value', snap => water_pump.innerHTML = "<mainText>Water Pump: </mainText>" + snap.val());
+
+        var sensors = document.getElementById('sensors');
+        sensorsRef.on('value', snap => sensors.innerHTML = "<mainText>Senser Status: </mainText>" + snap.val());
+    </script>
+</body>
+</html>

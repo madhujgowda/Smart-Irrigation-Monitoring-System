@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+</head>
+<body>
+	<section>
+		<article>
+			<div>
+				<input type="email" id="email" placeholder="Email">
+				<input type="password" id="password" placeholder="Password">
+				<button id="loginButton">Log in</button>
+			</div>
+		</article>
+	</section>
+	<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        // Please edit the below lines according to your firebase initialization 
+        var config = {
+            apiKey: "**your api key comes here**",
+            authDomain: "**your auth domain comes here**",
+            databaseURL: "**your database url comes here**",
+            projectId: "**your project id comes here**",
+            storageBucket: "**your storage bucket comes here**",
+            messagingSenderId: "**your messaging sender id comes here**"
+        };
+        firebase.initializeApp(config);
+
+        
+        const txtemail = document.getElementById('email');
+        const txtpassword = document.getElementById('password')
+        const loginButton = document.getElementById('loginButton');
+
+        loginButton.addEventListener('click', e => {
+        	const auth = firebase.auth();
+        	const email = txtemail.value;
+        	const password = txtpassword.value;
+
+        	const result = auth.signInWithEmailAndPassword(email,password);
+	        result.catch(e => console.log(e.message));
+	        firebase.auth().onAuthStateChanged(firebaseUser => {
+	        	if (firebaseUser) {
+	        		window.location.href = "index.html";
+	        		console.log(firebaseUser);
+	        	}
+	        	else
+	        	{
+	        		//alert("Email / Password Incorrect");
+	        	}
+	        });
+        });
+    </script>
+</body>
+</html>
