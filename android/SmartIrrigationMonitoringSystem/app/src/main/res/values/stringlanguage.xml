@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="english_temperature">Temperature</string>
+    <string name="kannada_temperature">ತಾಪಮಾನ</string>
+    <string name="telugu_temperature">ఉష్ణోగ్రత</string>
+    <string name="hindi_temperature">तापमान</string>
+    <string name="tamil_temperature">வெப்ப நிலை</string>
+
+    <string name="english_humidity">Humidity</string>
+    <string name="kannada_humidity">ಆರ್ದ್ರತೆ</string>
+    <string name="telugu_humidity">ఆర్ద్రత</string>
+    <string name="hindi_humidity">नमी</string>
+    <string name="tamil_humidity">ஈரப்பதம்</string>
+
+    <string name="english_soil_moisture">Soil Moisture</string>
+    <string name="kannada_soil_moisture">ಮಣ್ಣಿನ ಆರ್ದ್ರತೆ</string>
+    <string name="telugu_soil_moisture">నేల తేమ</string>
+    <string name="hindi_soil_moisture">मिटटी की नमी</string>
+    <string name="tamil_soil_moisture">மண் ஈரம்</string>
+
+    <string name="english_waterpump">Water Pump</string>
+    <string name="kannada_waterpump">ನೀರಿನ ಪಂಪ್</string>
+    <string name="telugu_waterpump">నీటి కొళాయి</string>
+    <string name="hindi_waterpump">पानी का पंप</string>
+    <string name="tamil_waterpump">நீர் பம்ப்</string>
+
+    <string name="english_on">ON</string>
+    <string name="kannada_on">ಆನ್</string>
+    <string name="telugu_on">ఆన్</string>
+    <string name="hindi_on">खोलना</string>
+    <string name="tamil_on">மாறவும்</string>
+
+    <string name="english_off">OFF</string>
+    <string name="kannada_off">ಆಫ್</string>
+    <string name="telugu_off">ఆఫ్</string>
+    <string name="hindi_off">बंद</string>
+    <string name="tamil_off">அனைத்து விடு</string>
+
+    <string name="english_sensor">Sensor Status</string>
+    <string name="kannada_sensor">ಸಂವೇದಕ ಸ್ಥಿತಿ</string>
+    <string name="telugu_sensor">సెన్సార్ స్థితి</string>
+    <string name="hindi_sensor">सेंसर स्थिति</string>
+    <string name="tamil_sensor">சென்சார் நிலை</string>
+</resources>
